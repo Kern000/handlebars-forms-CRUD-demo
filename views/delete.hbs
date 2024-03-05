@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body onload="renderDeletePage()">
+    <div class="container">
+        <h3>
+            Are you sure you want to delete?
+        </h3>
+        <div>
+            <table class="table table-danger">
+                <thead>
+                    <tr>
+                        <th>Id </th>
+                        <th>Title </th>                        
+                        <th>Duration </th>
+                        <th>Format </th>
+                        <th>Studio </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="deleter">
+                        <td>{{productToDelete.id}} </td>
+                        <td>{{productToDelete.title}} </td>                        
+                        <td>{{productToDelete.duration}} </td>
+                        <td>{{productToDelete.format}} </td>
+                        <td>{{productToDelete.studio}} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <form method="POST">
+                <input type="submit" value="Yes" class="btn btn-success"/>
+                <a href="/">
+                    <button type="button" class="btn btn-danger">
+                        No
+                    </button>  
+                </a>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
+
