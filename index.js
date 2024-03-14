@@ -1,10 +1,34 @@
 const express = require("express");
 const hbs = require("hbs");
 
-// for edit route to use
+
+// to understand:
+// const helpers = require("handlebars-helpers")({
+//     "handlebars": hbs.handlebars
+// })
+
+// console.log("before handlebars hbs.handlebars", hbs.handlebars)
+
 const helpers = require("handlebars-helpers")({
     "handlebars": hbs.handlebars
-});
+})
+
+// console.log("after handlebars hbs.handlebars", hbs.handlebars);
+
+// what handlebars-helpers has just did when you pass in the optional {handlebars:hbs.handlebars} as an Object (important, not an array)
+// https://www.npmjs.com/package/handlebars-helpers?activeTab=code
+// what this does is tell handlebars-helpers to target the HBS directory, and it will loop thru all the stored helper methods in the lib
+// and add it to the helpers of your current hbs.handlebars
+
+hbs.handlebars.registerHelper("ifEquals", function(arg1, arg2, options){
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this)
+})
+// This register #ifEquals
+// options.fn(this) is looking at the content between the {{#ifEquals}}
+// options.fn(this) look at the content between {{}} and {{}}
+// aka {{}} itemHere {{}}
+// options.inverse(this) is looking at the content within {{else}} block
+
 
 const app = express();
 
